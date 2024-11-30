@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon premier JavaScript</title>
+    <TITLE>Lancement de deux minuteries et arrêt de l'une d'elles</TITLE>
+    <script>
+        // function fin() {
+        //     // window.close();
+
+        //     // for (i = 5 ; i <= 10 ; i++){
+        //     //         document.write(i + '<BR>')
+        //     //         }
+        //     //         // boucle infini
+        //     //         for ( ; ;) {
+        //     //         document.write('je ne m\'arrête jamais ....' + '<BR>')
+        //     //         }
+
+        //     // document.write('voici la liste des propriétés de l\'objet <I>navigator</I> : <BR>')
+        //             // var i =0 ;
+        //             //     for (prop in document ){
+        //             //     document.write('test.'.italics() + prop.italics() + i +
+        //             //     '<BR>')
+        //             //         i++;
+        //             //     }
+
+
+
+        //     // class 
+        //     // function str2Date(strDate) {
+        //     //     TDate = strDate.split("/");
+        //     //     return new Date(TDate[2], TDate[1] - 1, TDate[0])
+        //     // }
+
+        //     // function classPersonne(nom, prenom, dateNaissance) {
+        //     //     this.Nom = nom;
+        //     //     this.Prenom = prenom;
+        //     //     this.DateNaissance = new str2Date(dateNaissance);
+        //     //     this.Age = function() {
+        //     //         dateSysteme = new Date();
+        //     //         return dateSysteme.getFullYear() - this.DateNaissance.getFullYear();
+        //     //     }
+        //     // }
+
+        //     // function classFonctionnaire(nom, prenom, dateNaissance, dateEmbauche) {
+        //     //     this.base = classPersonne;
+        //     //     this.base(nom, prenom, dateNaissance);
+        //     //     this.DateEmbauche = new str2Date(dateEmbauche);
+        //     //     this.Anciennte = function() {
+        //     //         dateSysteme = new Date();
+        //     //         return dateSysteme.getFullYear() - this.DateEmbauche.getFullYear();
+        //     //     }
+        //     // }
+        //     // oFonctionnaire = new classFonctionnaire("BOUSSALAM", "Yasser",
+        //     //     "29/10/1969", "02/06/2004");
+        //     // document.write(oFonctionnaire.Nom + " " + oFonctionnaire.Prenom + " " +
+        //     //     oFonctionnaire.Age() + " " + oFonctionnaire.Anciennte());
+
+        //     // var x =5  ; 
+        //     // document.write('la valeur de X2+3x-3 est :'+eval('x*x+3*x-3'))
+
+
+
+        //     // var imageVide = new Image() ;var imagePrintemps = new Image() ;
+        //     // var imageEte = new Image() ;var imageAutomne = new Image() ;
+        //     // var imageHiver = new Image() ;
+        //     //     imageVide.src = "/images/photo_vide.jpg";
+        //     //     imagePrintemps.src = "/images/photo_printemps.jpg"
+        //     //     imageEte.src = "/images/photo_ete.jpg"
+        //     //     imageAutomne.src = "/images/photo_automne.jpg"
+        //     //     imageHiver.src = "/images/photo_hiver.jpg"
+        //     //     function afficheImage(saison){
+        //     //     switch (saison) {
+        //     //     case 'printemps' :
+        //     //     document.images[0].src = imagePrintempsVide.src
+        //     //     break
+        //     //     case 'ete' :
+        //     //     document.images[0].src = imageEte.src
+        //     //     break
+        //     //     case 'automne' :
+        //     //     document.images[0].src = imageAutomne.src
+        //     //     break
+        //     //     case 'hiver' :
+        //     //     document.images[0].src = imageHiver.src
+        //     //     break
+        //     //     default :
+        //     //     document.images[0].src = imageVide.src
+        //     // }
+        //     // }
+
+
+        // }
+        //     var chaine;
+        //     function scrolling(chaine){
+        //         document.writeln(chaine);
+        //         // defillement=chaine.substring(1,chaine.length)+chaine.charAt(0);
+        //     // setTimeout('scrolling(defillement)',200);
+        //     }
+        //     scrolling('mon message qui fait un scrolling infini ...... ');
+
+        // toto = open("","","height=200,width=550,status=yes");
+        // toto.defaultStatus="Bienvenu sur ma modeste page d'accueil";
+
+
+
+
+        // // test cookies 
+        //     // Fonction pour créer un cookie
+        //     function CreeCookie(nom, valeur, dateExpire) {
+        //     let expiration = dateExpire ? "; expires=" + dateExpire.toGMTString() : "";
+        //     document.cookie = nom + "=" + escape(valeur) + expiration;
+        // }
+
+        // // Fonction pour lire un cookie
+        // function LitCookie(nom) {
+        //     const search = nom + "=";
+        //     if (document.cookie.length > 0) {
+        //         let debut = document.cookie.indexOf(search);
+        //         if (debut != -1) {
+        //             debut += search.length;
+        //             let fin = document.cookie.indexOf(";", debut);
+        //             if (fin == -1) fin = document.cookie.length;
+        //             return unescape(document.cookie.substring(debut, fin));
+        //         }
+        //     }
+        //     return "";
+        // }
+
+        // // Fonction pour demander un nombre à l'utilisateur et le stocker dans un cookie
+        // function StockerNombre() {
+        //     let nombre = prompt("Veuillez entrer un nombre :");
+        //     if (!isNaN(nombre) && nombre !== null) {
+        //         let maDate = new Date(2028, 11, 31); // Date d'expiration du cookie
+        //         CreeCookie("nombre", nombre, maDate);
+        //         alert("Nombre stocké dans le cookie !");
+        //     } else {
+        //         alert("Veuillez entrer un nombre valide !");
+        //     }
+        // }
+
+        // // Fonction pour afficher le nombre stocké dans le cookie
+        // function AfficherNombre() {
+        //     let nombre = LitCookie("nombre");
+        //     if (nombre) {
+        //         alert("Le nombre stocké est : " + nombre);
+        //     } else {
+        //         alert("Aucun nombre n'est stocké dans le cookie.");
+        //     }
+        // }
+
+
+
+
+
+
+
+        // test = 1;
+        //     w = open("", "","height=500,width=500");  
+        //     function affiche()
+        //     { w.document.write(test++ + "<BR>");  
+        //     if (test > 10) clearInterval(minut1);
+        //     }
+        //     setInterval("affiche()", 500, test);  
+        //     minut1 = setInterval("--test", 1000);
+            
+
+
+        
+        resultat = 252;
+                function maFonction(){  
+                resultat = 252252
+                document.forms[0].Champ2.value = "Après 3 secondes : " + resultat;
+                
+            }
+
+
+    </script>
+</head>
+
+<!-- <body  onUnload="w.close()"> -->
+<body   onLoad="seconde = setTimeout('maFonction()', 3000)" >
+
+    <!-- <a href="JavaScript:fin()">ici</a>  -->
+    <!-- <a href="" onmouseover="fin()">cela</a>-->
+
+    <!-- <H2><B><CENTER>Utilisation de la barre d'état pour afficher un message qui défile
+    </CENTER></B></H2>-->
+
+    <!-- <button onclick="StockerNombre()">Entrer un nombre</button>
+    <button onclick="AfficherNombre()">Afficher le nombre</button>  -->
+
+
+
+
+
+    <FORM>
+        <INPUT TYPE="text" NAME="Champ1" SIZE=30>
+        <INPUT TYPE="text" NAME="Champ2" SIZE=30>
+        <INPUT TYPE="button" VALUE="Cliquez ici pour arrêter" onClick=clearTimeout(seconde)>
+    </FORM>
+    <SCRIPT LANGUAGE="JavaScript">
+        document.forms[0].Champ1.value = "Immédiatement : " + resultat;
+        </SCRIPT>
+</body>
+
+
+
+</html>

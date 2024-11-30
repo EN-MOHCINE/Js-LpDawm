@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <DIV id="Div0" style="background-color:#FFCC33; width:900px">
+        <CENTER> javascript et Dom <BR>
+            <IMG name="image01" src="https://picsum.photos/200/300"> <BR>
+            Image du printemps
+        </CENTER>
+    </DIV>
+
+    <script>
+        // obj1 = document.getElementById("Div0");  
+        // win01 = open("", "", "width=380,height=420");  
+        // win01.document.write(obj1.innerHTML);
+        // win01.document.write("<hr>");  
+        // T = document.getElementsByName('image01');  
+        // win01.document.write("l'URL de l'image est : " + T[0].src);
+        // win01.document.write("<hr>");  
+        // T2 = document.getElementsByTagName("BR");  
+        // win01.document.write("Le nombre de balise BR dans le document est : " + T2.length);
+
+
+
+
+
+
+
+        // obj=document.getElementById("Div0")  
+        // valAttId=obj.getAttribute("id")  
+        // // valAttStyle=obj.getAttribute("style")
+        // valAttStyle=obj.style
+        // win01=open("","","width=380,height=420,scrollbars=yes")  
+        // win01.document.write("les valeurs des attributs de l'objet " +  
+        // obj.tagName + " sont : <BR>")
+        // win01.document.write("l identificateur : " + valAttId +" <BR>")  
+        // win01.document.write("le style : " +  valAttStyle.backgroundColor+"<BR>")
+        //     win01.document.write("le style width : " + valAttStyle.width + " <BR>");
+
+
+        // win01.document.write("l'attribut " +  obj.attributes[18].name+ " de l'objet  Div a la valeur : " +  obj.attributes[18].value+" <BR>")
+
+        //     // Display all attributes using a loop
+        // for (let i = 0; i < obj.attributes.length; i++) {
+        //     const attr = obj.attributes[i];
+        //     win01.document.write("l'attribut " + attr.name + " de l'objet Div a la valeur : " + attr.value + "<BR>");
+        // }
+
+        // obj1=document.getElementById("Div0");
+        // win01=open("","","width=380,height=240")  
+        // win01.document.write("L'élément ayant l'id Div0 est : " + obj1.nodeName+"<BR>")
+        // if(obj1.hasChildNodes()){  
+        // win01.document.write("L'élément ayant l'id Div0 a : " +
+        // obj1.childNodes.length+" fils<BR>")
+        // win01.document.write("Le nom du fils de l'élément ayant l'id Div0 est : "
+        // + obj1.childNodes[0].nodeName+"<BR>")
+        // win01.document.write("Le type du fils de l'élément ayant l'id Div0 est : " +  
+        // obj1.childNodes[0].nodeType+"<BR>")
+        // obj2=obj1.childNodes[0]  
+        // lesFilsObj2=""  ;
+        // for(i=0;i<obj2.childNodes.length;i++){
+        // lesFilsObj2+=obj2.childNodes[i].nodeName  
+        // lesFilsObj2+="<BR>"
+        // }
+        // win01.document.write("Le fils du fils de l'élément ayant l'id Div0 sont :<BR> " + lesFilsObj2)
+
+        // }
+
+
+
+        obj1=document.getElementById("Div0")  
+win01=open("","","width=380,height=240")
+ win01.document.write("L'élément ayant l'id Div0 est : " + obj1.nodeName +"<BR>")  
+obj2=obj1.firstChild
+ win01.document.write("Le premier fils de l’élément CENTER est : " +  
+obj2.firstChild.nodeName)
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tp images  JavaScript</title>
+    <script language="JavaScript1.2">
+        var imageVide = new Image();
+        var imagePrintemps = new Image();
+        var imageEte = new Image();
+        var imageAutomne = new Image();
+        var imageHiver = new Image();
+        imageVide.src = "https://via.placeholder.com/150/FFFFFF/000000?text=Vide";
+        imagePrintemps.src = "https://via.placeholder.com/150/00FF00/000000?text=Printemps";
+        imageEte.src = "https://via.placeholder.com/150/FFFF00/000000?text=Ete";
+        imageAutomne.src = "https://via.placeholder.com/150/FFA500/000000?text=Automne";
+        imageHiver.src = "https://via.placeholder.com/150/00FFFF/000000?text=Hiver";
+        const imageCookies ='' ;
+        function afficheImage(saison) {
+            switch (saison) {
+                case 'printemps':
+                    document.images[0].src = imagePrintemps.src;
+                    imageCookies = imagePrintemps.src ;
+                    break;
+                case 'ete':
+                    document.images[0].src = imageEte.src;
+                    imageCookies = imageEte.src ;
+                    break;
+                case 'automne':
+                    document.images[0].src = imageAutomne.src;
+                    imageCookies = imageAutomne.src ;
+                    break;
+                case 'hiver':
+                    document.images[0].src = imageHiver.src;
+                    imageCookies = imageHiver.src ;
+                    break;
+                default:
+                    document.images[0].src = imageVide.src;
+                    imageCookies = imageVide.src ;
+            }
+        }
+
+
+        function CreeCookie()
+                {
+        
+                }
+    </script>
+</head>
+
+<body>
+    <!-- <h1>Choose a Season to View the Image</h1> -->
+    <a href="#" onclick="afficheImage('vide')">Vide </a> |
+    <a href="#" onclick="afficheImage('printemps')">Printemps</a> |
+    <a href="#" onclick="afficheImage('ete')">Été</a> |
+    <a href="#" onclick="afficheImage('automne')">Automne</a> |
+    <a href="#" onclick="afficheImage('hiver')">Hiver</a>
+    <br><br>
+    <img src="https://via.placeholder.com/150/FFFFFF/000000?text=Vide" alt="Season Image">
+</body>
+
+</html>
