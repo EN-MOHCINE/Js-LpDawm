@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9-Square Image Puzzle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .puzzle-container {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 2px;
+      margin: 20px 0;
+    }
+    .tile {
+      width: 100px;
+      height: 100px;
+      background-size: 300px 300px; /* Size of the full image */
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    .empty {
+      background-color: #ccc;
+      cursor: default;
+    }
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:active {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Square Image Puzzle</h1>
+  <div class="buttons">
+    <button id="shuffle">Shuffle</button>
+    <button id="solve">Solve</button>
+  </div>
+  <div class="puzzle-container" id="puzzle"></div>
+
+  <script>
+    const imageSource = "./imgpuzzele.jpg"; // Image URL for the puzzle
+    const initialTileOrder = [1, 2, 3, 4, 5, 6, 7, 8, 0]; // 0 represents the empty tile
+    let currentTiles = [...initialTileOrder];
+
+    // Shuffle the tiles randomly
+    function shuffleTiles(tilesArray) {
+      for (let i = tilesArray.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [tilesArray[i], tilesArray[randomIndex]] = [tilesArray[randomIndex], tilesArray[i]];
+      }
+    }
+
+    // Check if the puzzle is solved
+    function checkIfSolved() {
+      return currentTiles.every((tile, index) => tile === initialTileOrder[index]);
+    }
+
+    // Display the puzzle tiles on the screen
+    function displayPuzzle() {
+      const puzzleContainer = document.getElementById("puzzle");
+      puzzleContainer.innerHTML = "";
+
+      currentTiles.forEach((tile, index) => {
+        const tileElement = document.createElement("div");
+        tileElement.classList.add("tile");
+
+        if (tile === 0) { // Empty tile
+          tileElement.classList.add("empty");
+        } else {
+          tileElement.style.backgroundImage = `url(${imageSource})`;
+          const row = Math.floor((tile - 1) / 3);
+          const col = (tile - 1) % 3;
+          tileElement.style.backgroundPosition = `${-col * 100}px ${-row * 100}px`;
+        }
+
+        tileElement.addEventListener("click", () => tryMoveTile(index));
+        puzzleContainer.appendChild(tileElement);
+      });
+    }
+
+    // Try to move a tile if it's next to the empty space
+    function tryMoveTile(index) {
+      const emptyTileIndex = currentTiles.indexOf(0);
+      const validMoves = getValidMoves(emptyTileIndex);
+      const extendedMoves = getExtendedMoves(validMoves);
+
+      console.log(`Tile clicked: ${index}, Empty tile: ${emptyTileIndex}, Valid moves: ${validMoves}, Extended moves: ${extendedMoves}`);
+
+      if (validMoves.includes(index) || extendedMoves.includes(index)) {
+        [currentTiles[index], currentTiles[emptyTileIndex]] = [currentTiles[emptyTileIndex], currentTiles[index]];
+        displayPuzzle();
+        if (checkIfSolved()) {
+          alert("Congratulations! You've solved the puzzle!");
+        }
+      }
+    }
+
+    function getValidMoves(emptyIndex) {
+      const moves = [];
+      const row = Math.floor(emptyIndex / 3);
+      const col = emptyIndex % 3;
+
+      if (row > 0) moves.push(emptyIndex - 3); // Up
+      if (row < 2) moves.push(emptyIndex + 3); // Down
+      if (col > 0) moves.push(emptyIndex - 1); // Left
+      if (col < 2) moves.push(emptyIndex + 1); // Right
+
+      return moves;
+    }
+
+    function getExtendedMoves(validMoves) {
+      const extendedMoves = new Set();
+
+      for (let i = 0; i < currentTiles.length; i++) {
+        if (currentTiles[i] !== 0) {
+          const adjacentToValidMoves = validMoves.filter((validMove) =>
+            getValidMoves(validMove).includes(i)
+          );
+
+          if (adjacentToValidMoves.length >= 2) {
+            extendedMoves.add(i);
+          }
+        }
+      }
+
+      return Array.from(extendedMoves);
+    }
+
+    // Reset the puzzle to the solved state
+    function resetPuzzle() {
+      currentTiles = [...initialTileOrder];
+      displayPuzzle();
+    }
+
+    // Initialize the puzzle game
+    document.getElementById("shuffle").addEventListener("click", () => {
+      shuffleTiles(currentTiles);
+      displayPuzzle();
+    });
+    document.getElementById("solve").addEventListener("click", resetPuzzle);
+
+    displayPuzzle();
+  </script>
+</body>
+</html>
